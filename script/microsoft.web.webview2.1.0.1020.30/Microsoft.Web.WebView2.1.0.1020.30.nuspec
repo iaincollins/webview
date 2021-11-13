@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.Web.WebView2</id>
+    <version>1.0.1020.30</version>
+    <authors>Microsoft</authors>
+    <owners></owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <projectUrl>https://aka.ms/webview</projectUrl>
+    <iconUrl>https://aka.ms/webviewlogo</iconUrl>
+    <description>The WebView2 control enables you to embed web technologies (HTML, CSS, and JavaScript) in your native applications powered by Microsoft Edge (Chromium).
+This package is necessary for Win32 C/C++, WPF, and WinForms applications. To learn more about package versions checkout https://aka.ms/wv2-packageversion. To learn best practices checkout: https://aka.ms/wv2-bestpractices.</description>
+    <releaseNotes>Release notes are at https://aka.ms/webviewrelease</releaseNotes>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <tags>Microsoft Web WebView Native native package Edge C++ Win32 WPF WinForms dotnet framework core Webview2</tags>
+    <dependencies>
+      <group targetFramework="native0.0" />
+      <group targetFramework="UAP10.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="build\native\arm64\WebView2Loader.dll" target="build\native\arm64\WebView2Loader.dll" />
+    <file src="build\native\arm64\WebView2Loader.dll.lib" target="build\native\arm64\WebView2Loader.dll.lib" />
+    <file src="build\native\arm64\WebView2LoaderStatic.lib" target="build\native\arm64\WebView2LoaderStatic.lib" />
+    <file src="build\native\include\WebView2.h" target="build\native\include\WebView2.h" />
+    <file src="build\native\include\WebView2EnvironmentOptions.h" target="build\native\include\WebView2EnvironmentOptions.h" />
+    <file src="build\native\include-winrt\WebView2Interop.h" target="build\native\include-winrt\WebView2Interop.h" />
+    <file src="build\native\include-winrt\WebView2Interop.idl" target="build\native\include-winrt\WebView2Interop.idl" />
+    <file src="build\native\include-winrt\WebView2Interop.tlb" target="build\native\include-winrt\WebView2Interop.tlb" />
+    <file src="build\native\x64\WebView2Loader.dll" target="build\native\x64\WebView2Loader.dll" />
+    <file src="build\native\x64\WebView2Loader.dll.lib" target="build\native\x64\WebView2Loader.dll.lib" />
+    <file src="build\native\x64\WebView2LoaderStatic.lib" target="build\native\x64\WebView2LoaderStatic.lib" />
+    <file src="build\native\x86\WebView2Loader.dll" target="build\native\x86\WebView2Loader.dll" />
+    <file src="build\native\x86\WebView2Loader.dll.lib" target="build\native\x86\WebView2Loader.dll.lib" />
+    <file src="build\native\x86\WebView2LoaderStatic.lib" target="build\native\x86\WebView2LoaderStatic.lib" />
+    <file src="build\native\Microsoft.Web.WebView2.targets" target="build\native\Microsoft.Web.WebView2.targets" />
+    <file src="build\Common.targets" target="build\Common.targets" />
+    <file src="build\Microsoft.Web.WebView2.targets" target="build\Microsoft.Web.WebView2.targets" />
+    <file src="lib\net45\Microsoft.Web.WebView2.Core.dll" target="lib\net45\Microsoft.Web.WebView2.Core.dll" />
+    <file src="lib\net45\Microsoft.Web.WebView2.Core.xml" target="lib\net45\Microsoft.Web.WebView2.Core.xml" />
+    <file src="lib\net45\Microsoft.Web.WebView2.WinForms.dll" target="lib\net45\Microsoft.Web.WebView2.WinForms.dll" />
+    <file src="lib\net45\Microsoft.Web.WebView2.WinForms.xml" target="lib\net45\Microsoft.Web.WebView2.WinForms.xml" />
+    <file src="lib\net45\Microsoft.Web.WebView2.Wpf.dll" target="lib\net45\Microsoft.Web.WebView2.Wpf.dll" />
+    <file src="lib\net45\Microsoft.Web.WebView2.Wpf.xml" target="lib\net45\Microsoft.Web.WebView2.Wpf.xml" />
+    <file src="lib\netcoreapp3.0\Microsoft.Web.WebView2.Core.dll" target="lib\netcoreapp3.0\Microsoft.Web.WebView2.Core.dll" />
+    <file src="lib\netcoreapp3.0\Microsoft.Web.WebView2.Core.xml" target="lib\netcoreapp3.0\Microsoft.Web.WebView2.Core.xml" />
+    <file src="lib\netcoreapp3.0\Microsoft.Web.WebView2.WinForms.dll" target="lib\netcoreapp3.0\Microsoft.Web.WebView2.WinForms.dll" />
+    <file src="lib\netcoreapp3.0\Microsoft.Web.WebView2.WinForms.xml" target="lib\netcoreapp3.0\Microsoft.Web.WebView2.WinForms.xml" />
+    <file src="lib\netcoreapp3.0\Microsoft.Web.WebView2.Wpf.dll" target="lib\netcoreapp3.0\Microsoft.Web.WebView2.Wpf.dll" />
+    <file src="lib\netcoreapp3.0\Microsoft.Web.WebView2.Wpf.xml" target="lib\netcoreapp3.0\Microsoft.Web.WebView2.Wpf.xml" />
+    <file src="lib\Microsoft.Web.WebView2.Core.winmd" target="lib\Microsoft.Web.WebView2.Core.winmd" />
+    <file src="runtimes\win-arm64\native\WebView2Loader.dll" target="runtimes\win-arm64\native\WebView2Loader.dll" />
+    <file src="runtimes\win-arm64\native_uap\Microsoft.Web.WebView2.Core.dll" target="runtimes\win-arm64\native_uap\Microsoft.Web.WebView2.Core.dll" />
+    <file src="runtimes\win-x64\native\WebView2Loader.dll" target="runtimes\win-x64\native\WebView2Loader.dll" />
+    <file src="runtimes\win-x64\native_uap\Microsoft.Web.WebView2.Core.dll" target="runtimes\win-x64\native_uap\Microsoft.Web.WebView2.Core.dll" />
+    <file src="runtimes\win-x86\native\WebView2Loader.dll" target="runtimes\win-x86\native\WebView2Loader.dll" />
+    <file src="runtimes\win-x86\native_uap\Microsoft.Web.WebView2.Core.dll" target="runtimes\win-x86\native_uap\Microsoft.Web.WebView2.Core.dll" />
+    <file src="tools\VisualStudioToolsManifest.xml" target="tools\VisualStudioToolsManifest.xml" />
+    <file src="LICENSE.txt" target="LICENSE.txt" />
+    <file src="WebView2.idl" target="WebView2.idl" />
+    <file src="WebView2.tlb" target="WebView2.tlb" />
+  </files>
+</package>
