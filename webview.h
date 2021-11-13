@@ -942,10 +942,21 @@ public:
     std::wstring currentExeNameW = wideCharConverter.from_bytes(currentExeName);
 
     HRESULT res = CreateCoreWebView2EnvironmentWithOptions(
-        nullptr, (userDataFolder + L"/" + currentExeNameW).c_str(), nullptr,
+        nullptr, (userDataFolder + L"\\" + currentExeNameW).c_str(), nullptr,
+        
         new webview2_com_handler(wnd, cb,
                                  [&](ICoreWebView2Controller *controller) {
                                    m_controller = controller;
+
+                                  // TODO Update to ICoreWebView2Controller2
+                                  //  struct COREWEBVIEW2_COLOR {
+                                  //   BYTE A = 255;
+                                  //   BYTE R = 0;
+                                  //   BYTE G = 0;
+                                  //   BYTE B = 0;
+                                  // };
+                                  // m_controller->put_DefaultBackgroundColor(COREWEBVIEW2_COLOR);
+
                                    m_controller->get_CoreWebView2(&m_webview);
                                    m_webview->AddRef();
                                    flag.clear();
@@ -1082,6 +1093,7 @@ public:
       wc.lpszClassName = "webview";
       wc.hIcon = icon;
       wc.hIconSm = icon;
+      wc.hbrBackground = GetSysColorBrush(COLOR_WINDOWFRAME);
       wc.lpfnWndProc =
           (WNDPROC)(+[](HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) -> int {
             auto w = (win32_edge_engine *)GetWindowLongPtr(hwnd, GWLP_USERDATA);
@@ -1114,10 +1126,16 @@ public:
             return 0;
           });
       RegisterClassEx(&wc);
-      m_window = CreateWindow("webview", "", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
-                              CW_USEDEFAULT, 640, 480, nullptr, nullptr,
+      // Center Window on screen
+      // TODO Support passing in Window size when created
+      int width = 640;
+      int height = 480;
+      int xPos = (GetSystemMetrics(SM_CXSCREEN) - width)/2;
+      int yPos = (GetSystemMetrics(SM_CYSCREEN) - height)/2;
+      m_window = CreateWindow("webview", "", WS_OVERLAPPEDWINDOW, xPos,
+                              yPos, 640, 480, nullptr, nullptr,
                               GetModuleHandle(nullptr), nullptr);
-      SetWindowLongPtr(m_window, GWLP_USERDATA, (LONG_PTR)this);
+      SetWindowLongPtr(m_window, GWLP_USERDATA, (LONG_PTR)this);      
     } else {
       m_window = *(static_cast<HWND *>(window));
     }
@@ -1197,6 +1215,11 @@ public:
   void navigate(const std::string url) { m_browser->navigate(url); }
   void eval(const std::string js) { m_browser->eval(js); }
   void init(const std::string js) { m_browser->init(js); }
+
+  // void update(HWND hwnd) {
+  //   auto w = (win32_edge_engine *)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+  //   w->m_browser->resize(hwnd);
+  // }
 
 private:
   virtual void on_message(const std::string msg) = 0;
